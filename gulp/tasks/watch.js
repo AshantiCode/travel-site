@@ -18,9 +18,14 @@ gulp.task('watch', function() {
   });
 
   watch('./app/assets/styles/**/*.css', function() {
-    gulp.start('cssInject');
     browserSync.reload();
-    
+    gulp.start('cssInject');
+
+    /*diese Funktion aus dem Netz, BrowserSync soll auch reloaded bei Änderungen/undos aus .css Files*/
+    gulp.task('watch', function () {
+      return gulp.watch(['./src/**/*.*'], ['server-reload']);
+    });
+        
   });
 });
 
@@ -30,3 +35,4 @@ gulp.task('cssInject', ['styles'], function() {
   .pipe(browserSync.stream());
   
 });
+
