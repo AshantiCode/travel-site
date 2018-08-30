@@ -100,13 +100,13 @@
       display: flex;   
     }
 
-    & > div {
+    .flexbox & > div {
       float: none;
       display: flex;
     }
   }
 
-  &--equal-height-at-large {
+  .flexbox &--equal-height-at-large {
     @mixin atLarge {
       display: flex;   
     }
